@@ -4,7 +4,7 @@ const gulp = require('gulp');
 const sass = require('gulp-sass');
 const autoPrefix = require('gulp-autoprefixer');
 const cleanCSS = require('gulp-clean-css');
-const imageMin = require('gulp-imagemin');
+//const imageMin = require('gulp-imagemin');
 const browserSync = require('browser-sync').create();
 
 // COPY HTML
@@ -13,27 +13,16 @@ gulp.task('copyHTML', function(){
     .pipe(gulp.dest('build'))
 });
 
-gulp.task('imageMin', function(){
-    const imgSrc = 'src/images/*',
-          imgDest = 'build/images';
-    gulp.src(imgSrc)
-    .pipe(imageMin())
-    .pipe(gulp.dest(imgDest));
-});
-
-/* CSS 
-gulp.task('styles', function() {
-    gulp.src(['src/styles/*.css'])
-        .pipe(concat('styles.css'))
+gulp.task('sass', function() {
+    gulp.src(['src/styles/*.scss'])
+        .pipe(sass().on('error', sass.logError))
         .pipe(autoPrefix('last 2 versions'))
         .pipe(cleanCSS())
         .pipe(gulp.dest('build/styles/'));
-}); */
-
-//gulp.task('', function(){});
+});
 
 gulp.task('browserSync', function(){
-    const files = ['src/*.html', 'src/styles/*.css'];
+    const files = ['src/*.html', 'src/styles/*.scss'];
     browserSync.init(files, {
         server: {
             baseDir: 'build'
@@ -41,8 +30,10 @@ gulp.task('browserSync', function(){
     });
 });
 
-gulp.task('default', ['copyHTML', 'imageMin', 'browserSync'], function(){
-    gulp.watch('src/*.html', function(){
-        gulp.run('copyHTML');
+gulp.task('default', [ 'browserSync', 'copyHTML', 'sass'], function(){
+    const files = ['src/*.html', 'src/styles/*.scss'];
+    const proc = ['copyHTML', 'sass'];
+    gulp.watch(files, function(){
+        gulp.run(proc);
     });
 });

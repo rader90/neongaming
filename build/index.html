@@ -11,52 +11,41 @@
 <!-- -------------FONT AWESOME CSS -------------------->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- --------------------------------------------------- -->
-<style>
-  .tmp-img {
-    height: 450px; 
-  }
-  .headlines {
-    background-color: #292b2c;
-  }
-</style>
+    <link rel="stylesheet" href="styles/style.css">
   </head>
   <body>
-      <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse sticky-top">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="#">Neon Gaming</a>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
-            <li class="nav-item active"><a class="nav-link" href=#>News</a></li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" id="navbarGamesDropdownLink" href=# data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Games
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarGamesDropdownLink">
-                <a class="dropdown-item" href="#">Counter-Strike: Global Offensive</a>
-                <a class="dropdown-item" href="#">Dota 2</a>
-                <a class="dropdown-item" href="#">Path of Exile</a>
-                <a class="dropdown-item" href="#">Hearthstone</a>
-              </div>
-            </li>
-            <li class="nav-item"><a class="nav-link" href=#>Shop</a></li>
-            <li class="nav-item"><a class="nav-link" href=#>Roster</a></li>
-            <li class="nav-item"><a class="nav-link" href=#>About</a></li>
-          </ul>
-        </div>
-      </nav>
-      
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 header jumbotron">
-          <h1>Neon Gaming</h1>
-          <h5>lorem ipsum dolor sit amet</h5>
-        </div>
+    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse sticky-top">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#">Neon Gaming</a>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item active"><a class="nav-link" href=#>News</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarGamesDropdownLink" href=# data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Games
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarGamesDropdownLink">
+              <a class="dropdown-item" href="#">Counter-Strike: Global Offensive</a>
+              <a class="dropdown-item" href="#">Dota 2</a>
+              <a class="dropdown-item" href="#">Path of Exile</a>
+              <a class="dropdown-item" href="#">Hearthstone</a>
+            </div>
+          </li>
+          <li class="nav-item"><a class="nav-link" href=#>Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href=#>Roster</a></li>
+          <li class="nav-item"><a class="nav-link" href=#>About</a></li>
+        </ul>
       </div>
+    </nav>
 
-      <div class="row">
-        <div class="col-md-12 headlines">
+    <div class="container-fluid px-0" id="header">
+      <img src="images/logo_300.png" alt="Neon gaming" class="d-block mx-auto img-fluid">
+      <h5 class="text-center">lorem ipsum dolor sit amet</h5>
+    </div>
+
+    <div class="container-fluid px-0" id="main-carousel">
           <!-- HEADLINES (CAROUSEL) -->
           <div id="headlinesCarouselControls" class="carousel slide" data-ride="carousel">
             <!-- CAROUSEL INDICATORS -->
@@ -64,28 +53,52 @@
               <li data-target="#headlinesCarouselControls" data-slide-to="0" class="active"></li>
               <li data-target="#headlinesCarouselControls" data-slide-to="1"></li>
               <li data-target="#headlinesCarouselControls" data-slide-to="2"></li>
+              <li data-target="#headlinesCarouselControls" data-slide-to="3"></li>
             </ol>
             <div class="carousel-inner" role="listbox">
               <!--- CAROUSEL ITEMS -->
               <div class="carousel-item active">
-                <img src="images/f1.jpg" alt="first slide" class="d-block img-fluid mx-auto tmp-img">
+                <img src="images/1.jpg" alt="first slide" class="d-block img-fluid mx-auto tmp-img">
                 <div class="carousel-caption">
-                  <h3>First Slide</h3>
-                  <p>Lorem ipsum dolor sit amet</p>
+                  <h2>First Slide</h2>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                     when an unknown printer took a galley of type and scrambled it to make a type
+                     specimen book. It has survived not only five centuries, but also the leap into
+                     electronic typesetting, remaining essentially unchanged.</p>
                 </div>
               </div>
               <div class="carousel-item">
-                <img src="images/f2.jpg" alt="second slide" class="d-block img-fluid mx-auto tmp-img">
+                <img src="images/2.jpg" alt="second slide" class="d-block img-fluid mx-auto tmp-img">
                 <div class="carousel-caption">
-                  <h3>Second Slide</h3>
-                  <p>Lorem ipsum dolor sit amet</p>
+                  <h2>Second Slide</h2>
+                  <p>Lorem ipsum dolor sit ameLorem Ipsum is simply dummy text of the printing and typesetting industry.
+                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                     when an unknown printer took a galley of type and scrambled it to make a type
+                     specimen book. It has survived not only five centuries, but also the leap into
+                     electronic typesetting, remaining essentially unchanged.t</p>
                 </div>
               </div>
               <div class="carousel-item">
-                <img src="images/f3.jpg" alt="third slide" class="d-block img-fluid mx-auto tmp-img" >
+                <img src="images/3.jpg" alt="third slide" class="d-block img-fluid mx-auto tmp-img" >
                   <div class="carousel-caption">
-                  <h3>Third Slide</h3>
-                  <p>Lorem ipsum dolor sit amet</p>
+                  <h2>Third Slide</h2>
+                  <p>Lorem ipsum dolor sit aLorem Ipsum is simply dummy text of the printing and typesetting industry.
+                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                     when an unknown printer took a galley of type and scrambled it to make a type
+                     specimen book. It has survived not only five centuries, but also the leap into
+                     electronic typesetting, remaining essentially unchanged.met</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="images/4.jpg" alt="fourth slide" class="d-block img-fluid mx-auto tmp-img" >
+                  <div class="carousel-caption">
+                  <h2>Fourth Slide</h2>
+                  <p>Lorem ipsum dolor sit amLorem Ipsum is simply dummy text of the printing and typesetting industry.
+                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                     when an unknown printer took a galley of type and scrambled it to make a type
+                     specimen book. It has survived not only five centuries, but also the leap into
+                     electronic typesetting, remaining essentially unchanged.et</p>
                 </div>
               </div>
             </div>
@@ -100,9 +113,9 @@
             </a>
           </div>
           <!-- --------------- -->
-        </div>
-      </div>
+    </div>
 
+    <div class="container">
       <div class="row">
         <div class="latest">
           <!-- LATEST NEWS (LINKS) -->

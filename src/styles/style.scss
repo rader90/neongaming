@@ -1,0 +1,85 @@
+/* VARIABLES */
+$blk : #000000;
+$wht: #FFFFFF;
+$d_gray : #292b2c;
+$d_green : #051702;
+$neon: #045209;
+$bg_smoke : './../images/bg.jpg';
+/* ************************** */
+
+/* MIXINS */
+@mixin main_typo {
+  font-family: Raleway, 'sans serif';
+  color: #e2e2e2;
+}
+@mixin bg_gradient {
+  background: linear-gradient(180deg, #000000, #051702 48%, #051702);
+}
+
+@mixin bg_main {
+  background-image: url($bg_smoke);
+  background-repeat: no-repeat;
+  background-position: top;
+  padding-top: 4%;
+  padding-bottom: 10%;
+  background-attachment: scroll;
+}
+
+@mixin neon_carousel {
+  border: 1px solid #00FF00;
+  opacity: 0.55;
+}
+
+@mixin neon_border {
+  border-style:groove;
+  border: 1px solid $neon;
+}
+
+@mixin carousel_desc {
+  //position: absolute !important;
+  //top: 8 !important;
+//  padding-top: 0 !important;
+
+}
+
+@mixin tint {
+  background-color: rgba(0,0,0,0.67);
+}
+
+@mixin typo_carousel {
+  padding: 16px;
+  letter-spacing: 2px;
+  line-height: 140%;
+}
+
+/*@mixin green_black_v {
+  background: linear-gradient(90deg, $d_green, $blk 4%, $blk 96%, $d_green);
+}*/
+/* *************************** */
+
+html>body {
+  @include main_typo;
+  @include bg_gradient;
+}
+
+div#header {
+  @include bg_main;
+  background-color: $blk;
+}
+
+/*.container .header {
+  @include bg_main;
+}*/
+
+div#main-carousel {
+  background-color: $d_gray;
+  .carousel-caption {
+    h2, p {
+      @include tint;
+      @include typo_carousel;
+      text-align: left;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+}
