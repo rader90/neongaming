@@ -36,9 +36,10 @@ $gradient_g_b : linear-gradient(180deg, $d_green_2, $blk);
   line-height: 140%;
 }
 
-@mixin steam_nav {
+@mixin steam_nav($height) {
   background: $gradient_g_b;
-  height: 46px;
+  height: $height;
+  // padding-bottom: 12px;
 }
 
 @mixin steam_nav_typo {
@@ -47,8 +48,10 @@ $gradient_g_b : linear-gradient(180deg, $d_green_2, $blk);
   letter-spacing: 1px;
   color: $neon;
   border-right: 1px solid $blk;
-  height: 46px;
-  padding-top: 12px;
+  height: 52px;
+  padding-top: 14px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 @mixin steam_nav_hover {
@@ -63,10 +66,10 @@ html>body {
   @include main_typo;
 }
 
+/* ============ NAVBAR =============== */
 nav#main-nav.navbar  {
-  @include steam_nav;
+  @include steam_nav(52px);
   ul.navbar-nav>li {
-    //display: inline-block;
     >a {
       @include steam_nav_typo;
       &:hover {
@@ -78,6 +81,46 @@ nav#main-nav.navbar  {
     }
   }
 }
+
+div.dropdown-menu {
+  @include steam_nav(auto);
+  >a.dropdown-item {
+    @include steam_nav_typo;
+    border-bottom: 1px solid $blk;
+    &:hover {
+      @include steam_nav_hover;
+    }
+  }
+  border-style: none;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+a.navbar-brand#brand {
+  @include steam_nav_typo;
+  display: inline-block;
+  border-right-style: none;
+  >span {
+    font-size: 0.75rem;
+  }
+  >i.fa-gamepad {
+    vertical-align: top;
+    font-size: 1rem;
+  }
+}
+
+button.navbar-toggler {
+  border-style: none;
+  >i.fa-bars {
+    padding-top: 8px;
+    color: $neon;
+    font-size: 1rem;
+  }
+}
+
+div#navbarNavDropdown {
+  @include steam_nav(auto);
+}
+/* =============== NAVBAR END ============ */
 
 div#header {
   @include bg_main;
@@ -95,8 +138,4 @@ div#main-carousel {
       margin-bottom: 0;
     }
   }
-}
-
-.fa {
-  color: #333333;
 }
