@@ -1,19 +1,20 @@
 /* VARIABLES */
 $blk : #000000;
 $wht: #FFFFFF;
+$wht_2: #F4FFF2;
 $d_gray : #292b2c;
 $d_green : #051702;
-$neon: #045209;
+$d_green_2 : #064a00;
+$neon: #73FF66;
+$neon_2: #0C8D00;
 $bg_smoke : './../images/bg.jpg';
+$gradient_g_b : linear-gradient(180deg, $d_green_2, $blk);
 /* ************************** */
 
 /* MIXINS */
 @mixin main_typo {
   font-family: Raleway, 'sans serif';
   color: #e2e2e2;
-}
-@mixin bg_gradient {
-  background: linear-gradient(180deg, #000000, #051702 48%, #051702);
 }
 
 @mixin bg_main {
@@ -23,23 +24,6 @@ $bg_smoke : './../images/bg.jpg';
   padding-top: 4%;
   padding-bottom: 10%;
   background-attachment: scroll;
-}
-
-@mixin neon_carousel {
-  border: 1px solid #00FF00;
-  opacity: 0.55;
-}
-
-@mixin neon_border {
-  border-style:groove;
-  border: 1px solid $neon;
-}
-
-@mixin carousel_desc {
-  //position: absolute !important;
-  //top: 8 !important;
-//  padding-top: 0 !important;
-
 }
 
 @mixin tint {
@@ -52,24 +36,53 @@ $bg_smoke : './../images/bg.jpg';
   line-height: 140%;
 }
 
-/*@mixin green_black_v {
-  background: linear-gradient(90deg, $d_green, $blk 4%, $blk 96%, $d_green);
-}*/
-/* *************************** */
+@mixin steam_nav {
+  background: $gradient_g_b;
+  height: 46px;
+}
 
+@mixin steam_nav_typo {
+  font-family: Orbitron, sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 1px;
+  color: $neon;
+  border-right: 1px solid $blk;
+  height: 46px;
+  padding-top: 12px;
+}
+
+@mixin steam_nav_hover {
+  color: $wht_2;
+  background-color: $neon_2;
+  border-left-color: $neon_2;
+  border-right-color: $neon_2;
+}
+
+/* ============ MAIN ================= */
 html>body {
   @include main_typo;
-  @include bg_gradient;
+}
+
+nav#main-nav.navbar  {
+  @include steam_nav;
+  ul.navbar-nav>li {
+    //display: inline-block;
+    >a {
+      @include steam_nav_typo;
+      &:hover {
+        @include steam_nav_hover;
+      }
+    }
+    &:first-child {
+      border-left: 1px solid $blk;
+    }
+  }
 }
 
 div#header {
   @include bg_main;
   background-color: $blk;
 }
-
-/*.container .header {
-  @include bg_main;
-}*/
 
 div#main-carousel {
   background-color: $d_gray;
