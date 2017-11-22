@@ -2,6 +2,7 @@
 $blk : #000000;
 $wht: #FFFFFF;
 $wht_2: #F4FFF2;
+$l_gray : #a6a6a6;
 $d_gray : #292b2c;
 $d_green : #051702;
 $d_green_2 : #064a00;
@@ -61,12 +62,6 @@ $gradient_g_b : linear-gradient(180deg, $d_green_2, $blk);
   border-right-color: $neon_2;
 }
 
-@mixin menu_vert_scr($max-height) {
-  height: auto;
-  max-height: $max-height;
-  overflow: scroll;
-}
-
 /* ============ MAIN ================= */
 html>body {
   @include main_typo;
@@ -97,7 +92,6 @@ div.dropdown-menu {
       @include steam_nav_hover;
     }
   }
-  @include menu_vert_scr(240px);
   border-style: none;
   padding-top: 0 !important;
   padding-bottom: 0 !important;
@@ -136,6 +130,27 @@ div#header {
   @include bg_main;
   background-color: $blk;
 } /* =============== HEADER END============ */
+
+/* ============ SOCIAL MEDIA TOP ============ */
+div#social-media-top {
+  margin-bottom: 4%;
+  >i.fa {
+    color: $l_gray;
+    opacity: .67;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid transparent; // to avoid elements below from moving when hovering with bottom padding
+    &:hover {
+      color: $neon;
+      &::before {
+        border-bottom: 1px solid $neon;
+        padding-bottom: 12px;
+        border-width: medium;
+      }
+    }
+  }
+} /* ============ SOCIAL MEDIA TOP END ============ */
 
 /* =============== CAROUSEL ============ */
 div#main-carousel {
