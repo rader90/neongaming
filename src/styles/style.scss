@@ -45,14 +45,15 @@ $gradient_g_b : linear-gradient(180deg, $d_green_2, $blk);
 
 @mixin steam_nav_typo {
   font-family: Orbitron, sans-serif;
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   letter-spacing: 1px;
   color: $neon;
   border-right: 1px solid $blk;
-  height: 52px;
-  padding-top: 14px;
+  height: 40px;
+  padding-top: 12px;
   padding-left: 16px;
   padding-right: 16px;
+  padding-bottom: 0;
 }
 
 @mixin steam_nav_hover {
@@ -69,7 +70,7 @@ html>body {
 
 /* ============ NAVBAR =============== */
 nav#main-nav.navbar  {
-  @include steam_nav(52px);
+  @include steam_nav(40px);
   ul.navbar-nav>li {
     >a {
       @include steam_nav_typo;
@@ -85,37 +86,39 @@ nav#main-nav.navbar  {
 
 div.dropdown-menu {
   @include steam_nav(auto);
+  border-style: none;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
   >a.dropdown-item {
     @include steam_nav_typo;
+    margin-left: 14px;
     border-bottom: 1px solid $blk;
+    border-right: none;
+    width: 90%;
     &:hover {
       @include steam_nav_hover;
     }
   }
-  border-style: none;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
 }
 
 a.navbar-brand#brand {
   @include steam_nav_typo;
   display: inline-block;
   border-right-style: none;
+  position: relative;
+  bottom: 8px;
   >span {
     font-size: 0.75rem;
   }
   >i.fa-gamepad {
-    vertical-align: top; // moves the brand name 2px up???
     font-size: 1rem;
-    position: relative; //moves the gamepad icon 2px up!
-    bottom: 2px; // text and logo are now vertically aligned!
   }
 }
 
 button.navbar-toggler {
   border-style: none;
+  padding-top: 2px;
   >i.fa-bars {
-    padding-top: 8px;
     color: $neon;
     font-size: 1rem;
   }
