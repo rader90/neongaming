@@ -61,6 +61,12 @@ $gradient_g_b : linear-gradient(180deg, $d_green_2, $blk);
   border-right-color: $neon_2;
 }
 
+@mixin menu_vert_scr($max-height) {
+  height: auto;
+  max-height: $max-height;
+  overflow: scroll;
+}
+
 /* ============ MAIN ================= */
 html>body {
   @include main_typo;
@@ -91,10 +97,12 @@ div.dropdown-menu {
       @include steam_nav_hover;
     }
   }
+  @include menu_vert_scr(240px);
   border-style: none;
   padding-top: 0 !important;
   padding-bottom: 0 !important;
 }
+
 a.navbar-brand#brand {
   @include steam_nav_typo;
   display: inline-block;
@@ -103,8 +111,10 @@ a.navbar-brand#brand {
     font-size: 0.75rem;
   }
   >i.fa-gamepad {
-    vertical-align: top;
+    vertical-align: top; // moves the brand name 2px up???
     font-size: 1rem;
+    position: relative; //moves the gamepad icon 2px up!
+    bottom: 2px; // text and logo are now vertically aligned!
   }
 }
 
@@ -119,14 +129,15 @@ button.navbar-toggler {
 
 div#navbarNavDropdown {
   @include steam_nav(auto);
-}
-/* =============== NAVBAR END ============ */
+} /* =============== NAVBAR END ============ */
 
+/* =============== HEADER ============ */
 div#header {
   @include bg_main;
   background-color: $blk;
-}
+} /* =============== HEADER END============ */
 
+/* =============== CAROUSEL ============ */
 div#main-carousel {
   background-color: $d_gray;
   .carousel-caption {
@@ -138,4 +149,4 @@ div#main-carousel {
       margin-bottom: 0;
     }
   }
-}
+} /* =============== CAROUSEL END ============ */

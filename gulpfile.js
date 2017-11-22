@@ -13,12 +13,20 @@ gulp.task('copyHTML', function(){
     .pipe(gulp.dest('build'))
 });
 
+// // minify images
+// gulp.task('imageMin', function(){
+//     gulp.src('src/images/*')
+//     .pipe(imageMin())
+//     .pipe(gulp.dest('build/images'))
+// });
+
+// sass and css
 gulp.task('sass', function() {
     gulp.src(['src/styles/*.scss'])
-        .pipe(sass().on('error', sass.logError))
-        .pipe(autoPrefix('last 2 versions'))
-        .pipe(cleanCSS())
-        .pipe(gulp.dest('build/styles/'));
+    .pipe(sass().on('error', sass.logError))
+    .pipe(autoPrefix('last 2 versions'))
+    .pipe(cleanCSS())
+    .pipe(gulp.dest('build/styles/'));
 });
 
 gulp.task('browserSync', function(){
