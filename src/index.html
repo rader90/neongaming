@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="styles/style.css">
   </head>
   <body>
+<!-- ============= MAIN NAVBAR ================ -->
     <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse sticky-top" id="main-nav">
       <button class="navbar-toggler navbar-toggler-left" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fa fa-bars"></i>
@@ -39,7 +40,7 @@
           <li class="nav-item"><a class="nav-link" href=#>About</a></li>
         </ul>
       </div>
-    </nav>
+    </nav> <!-- =========== MAIN NAVBAR END ============ -->
 
 <!-- ============== HEADER ======================= -->
     <div class="container-fluid px-0" id="header">
@@ -91,7 +92,8 @@
                  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
                  when an unknown printer took a galley of type and scrambled it to make a type
                  specimen book. It has survived not only five centuries, but also the leap into
-                 electronic typesetting, remaining essentially unchanged.t</p>
+                 electronic typesetting, remaining essentially unchanged.
+               </p>
             </div>
           </div>
           <div class="carousel-item">
@@ -129,37 +131,10 @@
       </div>
     </div> <!-- ========== CAROUSEL END ============ -->
 
-<!-- =============== FEATURED STORIES ================== -->
-    <div class="container">
-      <div class="row">
-        <h2>Featured Stories</h2>
-      </div>
-
-      <div class="row">
-        <div class="col-md-4">
-          <img src="images/f1.jpg" alt="second slide" class="d-block img-fluid">
-          <h4>Lorem Ipsum</h4>
-          <p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
-
-        <div class="col-md-4">
-          <img src="images/f2.jpg" alt="second slide" class="d-block img-fluid">
-          <h4>Lorem Ipsum</h4>
-          <p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
-
-        <div class="col-md-4">
-          <img src="images/f3.jpg" alt="second slide" class="d-block img-fluid">
-          <h4>Lorem Ipsum</h4>
-          <p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
-      </div>
-    </div> <!-- =============== FEATURED STORIES END ============== -->
-
 <!-- ================== LATEST NEWS ====================== -->
-    <div class="container">
+    <div class="container-fluid" id="latest">
       <div class="row">
-        <div class="latest">
+        <div class="col-md-10 offset-md-1">
           <h2>Latest News</h2>
           <ul>
             <li><a href="">Dota2: Daily 1 GB updates to be deployed on SEA Server</a></li>
@@ -174,6 +149,35 @@
         </div>
       </div>
     </div> <!-- ============== LATEST NEWS END =========== -->
+
+<!-- =============== FEATURED STORIES ================== -->
+    <div class="container-fluid" id="featured">
+      <div class="row">
+        <div class="col-md-10 offset-md-1">
+          <h2>Featured Stories</h2>
+        </div>
+      </div>
+
+      <div class="row feat-stories justify-content-around">
+        <div class="col-md-3 stories">
+          <img src="images/1.jpg" alt="second slide" class="d-block img-fluid">
+          <h4>Lorem Ipsum</h4>
+          <p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+
+        <div class="col-md-3 stories">
+          <img src="images/2.jpg" alt="second slide" class="d-block img-fluid">
+          <h4>Lorem Ipsum</h4>
+          <p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+
+        <div class="col-md-3 stories">
+          <img src="images/3.jpg" alt="second slide" class="d-block img-fluid">
+          <h4>Lorem Ipsum</h4>
+          <p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+    </div> <!-- =============== FEATURED STORIES END ============== -->
 
 <!-- =============== FOOTER =================== -->
     <div class="container-fluid">

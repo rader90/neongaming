@@ -2,14 +2,18 @@
 $blk : #000000;
 $wht: #FFFFFF;
 $wht_2: #F4FFF2;
+$wht_3: #e4f2e7;
 $l_gray : #a6a6a6;
 $d_gray : #292b2c;
 $d_green : #051702;
 $d_green_2 : #064a00;
+$dark_green: #0b210b;
 $neon: #73FF66;
 $neon_2: #0C8D00;
+$accent_light: rgba(191,255,102,0.2);
 $bg_smoke : './../images/bg.jpg';
-$gradient_g_b : linear-gradient(180deg, $d_green_2, $blk);
+$gradient_gb : linear-gradient(180deg, $d_green_2, $blk);
+$gradient_bgb : linear-gradient(180deg, $blk, $dark_green, $blk);
 /* ************************** */
 
 /* MIXINS */
@@ -27,6 +31,10 @@ $gradient_g_b : linear-gradient(180deg, $d_green_2, $blk);
   background-attachment: scroll;
 }
 
+@mixin bg_gradient {
+background: linear-gradient(180deg, $blk, $dark_green, $blk);
+}
+
 @mixin tint {
   background-color: rgba(0,0,0,0.67);
 }
@@ -38,7 +46,7 @@ $gradient_g_b : linear-gradient(180deg, $d_green_2, $blk);
 }
 
 @mixin steam_nav($height) {
-  background: $gradient_g_b;
+  background: $gradient_gb;
   height: $height;
   // padding-bottom: 12px;
 }
@@ -61,6 +69,12 @@ $gradient_g_b : linear-gradient(180deg, $d_green_2, $blk);
   background-color: $neon_2;
   border-left-color: $neon_2;
   border-right-color: $neon_2;
+}
+
+@mixin space_b4_sections {
+  margin-top: 4%;
+  padding-top: 34px;
+  padding-bottom: 34px;
 }
 
 /* ============ MAIN ================= */
@@ -106,7 +120,7 @@ a.navbar-brand#brand {
   display: inline-block;
   border-right-style: none;
   position: relative;
-  bottom: 8px;
+  bottom: 5px;
   >span {
     font-size: 0.75rem;
   }
@@ -157,7 +171,7 @@ div#social-media-top {
 
 /* =============== CAROUSEL ============ */
 div#main-carousel {
-  background-color: $d_gray;
+  @include bg_gradient;
   .carousel-caption {
     h2, p {
       @include tint;
@@ -168,3 +182,51 @@ div#main-carousel {
     }
   }
 } /* =============== CAROUSEL END ============ */
+
+/* =============== LATEST NEWS =============== */
+div#latest {
+  background-color: #0c120c;
+  @include space_b4_sections;
+  h2 {
+    border-bottom: 1px solid $accent_light;
+    padding-bottom: 4px;
+    width: 85%;
+  }
+  ul {
+    padding-top: 16px;
+    padding-left: 4px;
+    >li {
+      line-height: 200%;
+      list-style-type: none;
+      >a {
+        color: $wht_3;
+        opacity: 0.85;
+        &:hover {
+          text-decoration: none;
+          color: $neon;
+          border-bottom: 1px solid $accent_light;
+        }
+      }
+    }
+  }
+} /* ============= LATEST NEWS END ============= */
+
+/* ============ FEATURED STORIES ================ */
+div#featured {
+  @include space_b4_sections;
+  @include bg_gradient;
+  margin-top: 0;
+  h2 {
+    border-bottom: 1px solid $accent_light;
+    width: 85%;
+    padding-bottom: 4px;
+  }
+  .feat-stories {
+    padding-top: 34px;
+    >div.stories {
+      border: 1px solid $accent_light;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+} /* ============ FEATURED STORIES END ============== */
