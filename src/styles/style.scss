@@ -8,6 +8,7 @@ $d_gray : #292b2c;
 $d_green : #051702;
 $d_green_2 : #064a00;
 $dark_green: #0b210b;
+$links: #66bfff;
 $neon: #73FF66;
 $neon_2: #0C8D00;
 $accent_light: rgba(191,255,102,0.2);
@@ -72,14 +73,22 @@ background: linear-gradient(180deg, $blk, $dark_green, $blk);
 }
 
 @mixin space_b4_sections {
-  margin-top: 4%;
   padding-top: 34px;
   padding-bottom: 34px;
+}
+
+@mixin section_title {
+  border-bottom: 1px solid $accent_light;
+  padding-bottom: 4px;
+  width: 85%;
+  color: $neon_2;
+  opacity: 0.75;
 }
 
 /* ============ MAIN ================= */
 html>body {
   @include main_typo;
+  background: linear-gradient(180, $blk, $dark_green);
 }
 
 /* ============ NAVBAR =============== */
@@ -150,10 +159,10 @@ div#header {
 
 /* ============ SOCIAL MEDIA TOP ============ */
 div#social-media-top {
-  margin-bottom: 4%;
-  >i.fa {
+  padding-top: 2%;
+  i.fa {
     color: $l_gray;
-    opacity: .67;
+    opacity: 0.55;
     padding-right: 10px;
     padding-left: 10px;
     padding-bottom: 12px;
@@ -173,13 +182,19 @@ div#social-media-top {
 div#main-carousel {
   @include bg_gradient;
   .carousel-caption {
-    h2, p {
+    h3, p {
       @include tint;
       @include typo_carousel;
       text-align: left;
       margin-top: 0;
       margin-bottom: 0;
     }
+  }
+  /* ==== MAKES CAROUSEL RESPONSIVE ====== */
+  .carousel-item.active,
+  .carousel-item-next,
+  .carousel-item-prev {
+    display: block;
   }
 } /* =============== CAROUSEL END ============ */
 
@@ -188,18 +203,16 @@ div#latest {
   background-color: #0c120c;
   @include space_b4_sections;
   h2 {
-    border-bottom: 1px solid $accent_light;
-    padding-bottom: 4px;
-    width: 85%;
+    @include section_title;
   }
   ul {
     padding-top: 16px;
     padding-left: 4px;
     >li {
       line-height: 200%;
-      list-style-type: none;
+      list-style: none;
       >a {
-        color: $wht_3;
+        color: $links;
         opacity: 0.85;
         &:hover {
           text-decoration: none;
@@ -217,9 +230,7 @@ div#featured {
   @include bg_gradient;
   margin-top: 0;
   h2 {
-    border-bottom: 1px solid $accent_light;
-    width: 85%;
-    padding-bottom: 4px;
+    @include section_title;
   }
   .feat-stories {
     padding-top: 34px;
@@ -227,6 +238,82 @@ div#featured {
       border: 1px solid $accent_light;
       padding-left: 0;
       padding-right: 0;
+      h4, p {
+        @include tint;
+        margin-bottom: 0;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        padding-left: 4px;
+      }
     }
   }
 } /* ============ FEATURED STORIES END ============== */
+
+/* ============= FOOTER ================ */
+div#footer {
+  @include space_b4_sections;
+  background-color: $d_green;
+  padding-bottom: 12px;
+  h5 {
+    @include section_title;
+  }
+  p {
+    margin-bottom: 0;
+    &:nth-child(4){
+      margin-bottom: 24px;
+    }
+  }
+  ul {
+    padding-left: 4px;
+    >li {
+      list-style: none;
+      line-height: 200%;
+      >a {
+        color: $links;
+        opacity: 0.85;
+        &:hover {
+          text-decoration: none;
+          color: $neon;
+          border-bottom: 1px solid $accent_light;
+        }
+      }
+    }
+  }
+  div#soc-media-bot i.fa {
+    font-size: 1.5rem;
+    color: $l_gray;
+    opacity: 0.55;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 12px;
+    padding-top: 12px;
+    border-bottom: 1px solid transparent; // to avoid elements below from moving when hovering with bottom padding
+    &:hover {
+      color: $neon;
+      &::before {
+        border-bottom: 1px solid $neon;
+        padding-bottom: 12px;
+        border-width: medium;
+      }
+    }
+  }
+  div#copyright {
+    padding-top: 24px;
+    a {
+      color: $links;
+      opacity: 0.85;
+      &:hover {
+        text-decoration: none;
+        color: $neon;
+        border-bottom: 1px solid $accent_light;
+      }
+    }
+  }
+} /* ============ FOOTER END =============== */
+
+/* =========== MEDIA QUERIES =============== */
+@media (max-width: 767px)  {
+   .carousel-caption p {
+     display: none;
+   }
+}
