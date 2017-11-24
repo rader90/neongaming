@@ -1,2 +1,6 @@
-build
-node_modules
+# git ignore for gh-pages
+*
+
+# except
+!build/
+!.gitignore
