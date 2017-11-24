@@ -11,6 +11,11 @@ gulp.task('copyHTML', function(){
     .pipe(gulp.dest('build'))
 });
 
+gulp.task('copyImg', function(){
+  gulp.src('src/images/*.*')
+  .pipe(gulp.dest('build/images'))
+})
+
 gulp.task('sass', function() {
     gulp.src(['src/styles/*.scss'])
     .pipe(sass().on('error', sass.logError))
