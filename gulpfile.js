@@ -5,6 +5,7 @@ const sass = require('gulp-sass');
 const autoPrefix = require('gulp-autoprefixer');
 const cleanCSS = require('gulp-clean-css');
 const browserSync = require('browser-sync').create();
+const ghPages = require('gulp-gh-pages');
 
 gulp.task('copyHTML', function(){
     gulp.src('src/*.html')
@@ -34,4 +35,9 @@ gulp.task('default', [ 'browserSync', 'copyHTML', 'sass'], function(){
     gulp.watch(files, function(){
         gulp.run(proc);
     });
+});
+
+gulp.task('deploy', function(){
+  return gulp.src('build/*')
+         .pipe(ghPages());
 });
