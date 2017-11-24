@@ -1,6 +1,0 @@
-# git ignore for gh-pages
-*
-
-# except
-!build/
-!.gitignore
