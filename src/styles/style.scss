@@ -8,6 +8,7 @@ $d_gray : #292b2c;
 $d_green : #051702;
 $d_green_2 : #064a00;
 $dark_green: #0b210b;
+$dark_green_2: #0c120c;
 $links: #66bfff;
 $neon: #73FF66;
 $neon_2: #0C8D00;
@@ -19,8 +20,10 @@ $gradient_bgb : linear-gradient(180deg, $blk, $dark_green, $blk);
 
 /* MIXINS */
 @mixin main_typo {
-  font-family: Raleway, 'sans serif';
-  color: #e2e2e2;
+  font-family: 'Sarala', 'sans serif';
+  color: $wht_3;
+  opacity: 0.85;
+  line-height: 125%;
 }
 
 @mixin bg_main {
@@ -49,7 +52,6 @@ background: linear-gradient(180deg, $blk, $dark_green, $blk);
 @mixin steam_nav($height) {
   background: $gradient_gb;
   height: $height;
-  // padding-bottom: 12px;
 }
 
 @mixin steam_nav_typo {
@@ -88,7 +90,7 @@ background: linear-gradient(180deg, $blk, $dark_green, $blk);
 /* ============ MAIN ================= */
 html>body {
   @include main_typo;
-  background: linear-gradient(180, $blk, $dark_green);
+  background-color: $blk;
 }
 
 /* ============ NAVBAR =============== */
@@ -114,10 +116,8 @@ div.dropdown-menu {
   padding-bottom: 0 !important;
   >a.dropdown-item {
     @include steam_nav_typo;
-    margin-left: 14px;
     border-bottom: 1px solid $blk;
     border-right: none;
-    width: 90%;
     &:hover {
       @include steam_nav_hover;
     }
@@ -182,12 +182,15 @@ div#social-media-top {
 div#main-carousel {
   @include bg_gradient;
   .carousel-caption {
-    h3, p {
+    h3 {
       @include tint;
       @include typo_carousel;
-      text-align: left;
       margin-top: 0;
       margin-bottom: 0;
+    }
+    p {
+      @extend h3;
+      text-align: left;
     }
   }
   /* ==== MAKES CAROUSEL RESPONSIVE ====== */
@@ -200,7 +203,7 @@ div#main-carousel {
 
 /* =============== LATEST NEWS =============== */
 div#latest {
-  background-color: #0c120c;
+  background-color: $dark_green_2;
   @include space_b4_sections;
   h2 {
     @include section_title;
@@ -235,15 +238,19 @@ div#featured {
   .feat-stories {
     padding-top: 34px;
     >div.stories {
-      border: 1px solid $accent_light;
+      // border: 1px solid $accent_light;
       padding-left: 0;
       padding-right: 0;
-      h4, p {
+      h4 {
         @include tint;
         margin-bottom: 0;
         padding-top: 8px;
         padding-bottom: 8px;
-        padding-left: 4px;
+        // padding-left: 4px;
+      }
+      p {
+        @extend h4;
+        text-align: left;
       }
     }
   }
@@ -313,7 +320,9 @@ div#footer {
 
 /* =========== MEDIA QUERIES =============== */
 @media (max-width: 767px)  {
-   .carousel-caption p {
-     display: none;
-   }
+  .carousel-caption  {
+    p {
+      display: none;
+    }
+  }
 }
